@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:oneline_grocery/common/color_extension.dart';
 
-class CategoryCard extends StatelessWidget {
+class ExploreCard extends StatelessWidget {
   final Map pObj;
   final VoidCallback onPressed;
 
-  const CategoryCard({
+  const ExploreCard({
     super.key,
     required this.pObj,
     required this.onPressed,
@@ -13,45 +13,45 @@ class CategoryCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var color = (pObj["color"] as Color? ?? TColor.primary);
     return InkWell(
       onTap: onPressed,
+      borderRadius: BorderRadius.circular(15),
       child: Container(
-        width: 250,
-        margin: const EdgeInsets.symmetric(horizontal: 8),
         padding: const EdgeInsets.all(15),
         decoration: BoxDecoration(
-          color: (pObj["color"] as Color? ?? TColor.primary).withOpacity(0.3),
-          // border:
-          //     Border.all(color: TColor.placeholder.withOpacity(0.5), width: 1),
+          color: color.withOpacity(0.25),
+          border:
+              Border.all(color: color, width: 1),
           borderRadius: BorderRadius.circular(15),
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Image.asset(
                   pObj['icon'],
-                  width: 70,
-                  height: 70,
+                  width: 120,
+                  height: 90,
                   fit: BoxFit.contain,
-                ),
-                const SizedBox(
-                  width: 10,
-                ),
-                Expanded(
-                  child: Text(
-                    pObj["name"],
-                    style: TextStyle(
-                        color: TColor.primaryText,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w700),
-                  ),
                 ),
               ],
             ),
+
+            const Spacer(),
+
+            Text(
+              pObj["name"],
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  color: TColor.primaryText,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w700),
+            ),
+            const Spacer(),
           ],
         ),
       ),

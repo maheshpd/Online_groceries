@@ -5,10 +5,14 @@ class ProductCard extends StatelessWidget {
   final Map pObj;
   final VoidCallback onPressed;
   final VoidCallback onCart;
+  final double margin;
+  final double weight;
   const ProductCard(
       {super.key,
       required this.pObj,
       required this.onPressed,
+        this.weight = 180,
+        this.margin = 8,
       required this.onCart});
 
   @override
@@ -16,8 +20,8 @@ class ProductCard extends StatelessWidget {
     return InkWell(
       onTap: onPressed,
       child: Container(
-        width: 180,
-        margin: const EdgeInsets.symmetric(horizontal: 8),
+        width: weight,
+        margin: EdgeInsets.symmetric(horizontal: margin) ,
         padding: const EdgeInsets.all(15),
         decoration: BoxDecoration(
           color: Colors.white,

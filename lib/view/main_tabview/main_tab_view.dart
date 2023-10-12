@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:oneline_grocery/common/color_extension.dart';
+import 'package:oneline_grocery/view/explore/explore_view.dart';
 import 'package:oneline_grocery/view/home/home_view.dart';
 
 class MainTabView extends StatefulWidget {
@@ -35,7 +36,7 @@ class _MainTabViewState extends State<MainTabView>
     return Scaffold(
       body: TabBarView(controller: controller, children: [
         const HomeView(),
-        Container(),
+        const ExploreView(),
         Container(),
         Container(),
         Container(),
